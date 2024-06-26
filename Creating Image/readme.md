@@ -1,23 +1,21 @@
-Criando uma imagem base a partir da documentação oficial do Dockerfile.
+# Criando uma Imagem Base a partir da Documentação Oficial do Dockerfile
+Este guia proporciona um fluxo claro e fácil de seguir para criar e executar sua imagem Docker.
 
-Como começar, a partir desse Dockerfile? Simple! Siga os passos: (o "$" significa que é dentro do cli)
+Como começar a partir desse Dockerfile? Simples! Siga os passos abaixo:
 
-1.) na pasta do dockerfile faça build da imagem:
+## Passos para Criar e Executar a Imagem Docker
 
-$ docker build -t aplicacao-teste .
+1. Na pasta do Dockerfile, faça o build da imagem:  
+  $ docker build -t aplicacao-teste .
 
-3.) Em seguida inicie sua aplicação, usando:
+2. Em seguida, inicie sua aplicação usando:  
+    $ docker run --name aplicacao-teste -dp 127.0.0.1:8080:8080 aplicacao-teste
 
-$ docker run --name aplicacao-teste -dp 127.0.0.1:8080:8080 aplicacao-teste
+3. Agora, vamos entrar no container:  
+    $ docker container exec -it aplicacao-teste /bin/sh
 
-5.) agora vamos entrar no container
+4. Se tudo estiver certo, você está dentro do container :)
+5. Teste a conectividade dentro do seu container usando curl:  
+    $ curl 127.0.0.1:8080
 
-$ docker container exec -it aplicacao-teste /bin/sh
-
-7.) se tudo estiver certo você está dentro do container :)
-
-8.) teste a conectividade dentro do seu container usando curl
-
-$ curl 127.0.0.1:8080
-
-10.) você deve receber o retorno do Nginx.
+Você deve receber o retorno do Nginx.
