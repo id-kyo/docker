@@ -17,4 +17,4 @@ WORKDIR /app/dockercreated/anotherone
 COPY ./localfile.txt /app/dockercreated/anotherone/
 
 # Exposição da porta 8080 para o container
-EXPOSE 8080:8080
+EXPOSE 8080
