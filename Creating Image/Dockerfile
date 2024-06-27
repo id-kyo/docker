@@ -6,7 +6,7 @@ WORKDIR /app/dockercreated
 # Criação de um arquivo e adição de texto nele
 RUN touch test.txt && \
     echo "teste nginx" >> test.txt && \
-    echo -e "are you seeking for the text? try go on /app/dockercreated" &&\
+    echo -e "are you seeking for the text? try on /app/dockercreated" &&\
     mkdir anotherone
 
 # Adição de um arquivo local para o diretório de trabalho
