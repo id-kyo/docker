@@ -7,8 +7,9 @@ COPY . .
 RUN npm run build
 
 # Etapa 2: Execução da aplicação
-FROM node:14-slim
+FROM scratch:latest
 WORKDIR /app
+#Chamando o primeiro "FROM" as Builder. Para formar as imagens em binário
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/package.json ./
 RUN npm install --only=production
