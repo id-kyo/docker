@@ -15,6 +15,7 @@ Como começar a partir desse Dockerfile? Simples! Siga os passos abaixo:
     $ docker container exec -it aplicacao-teste /bin/sh
 
 4. Se tudo estiver certo, você está dentro do container :)
+
 5. Teste a conectividade dentro do seu container usando curl:  
     $ curl 127.0.0.1:8080
 
