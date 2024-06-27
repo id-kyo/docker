@@ -9,7 +9,7 @@ Como começar a partir desse Dockerfile? Simples! Siga os passos abaixo:
     $ docker build -t aplicacao-teste .
 
 2. Em seguida, inicie sua aplicação usando:  
-    $ docker run --name aplicacao-teste -dp 127.0.0.1:80:8080 aplicacao-teste
+    $ docker run --name aplicacao-teste -d -p 127.0.0.1:80:8080 aplicacao-teste
 
 3. Agora, vamos entrar no container:  
     $ docker container exec -it aplicacao-teste /bin/sh
