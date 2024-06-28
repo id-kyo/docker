@@ -1,23 +1,17 @@
 # Stage 1: Build
-FROM golang:1.16 AS builder
+FROM golang:1.18.0-bullseye AS builder
 
-# Definindo o diretório de trabalho no contêiner
+# expõe a porta 80 do container
+EXPOSE 80
+
+# muda o workdir para /app
 WORKDIR /app
 
-# Copiando os arquivos do projeto para o contêiner
-COPY . .
+# copia o app.go local para a imagem.
+COPY app.go .
 
-# transformando o código em binário. parecido com um .exe
-RUN RUN go build -o app.go
+# roda o "go mod init [name]", necessário para fazer o go build.
+RUN go mod init main && go build 
 
-# Stage 2: Construção do Run
-FROM scratch:latest AS runner
-
-# Definindo o diretório de trabalho no contêiner
-WORKDIR /root/
-
-# copia o binário do builder para o runner
-COPY --from=builder . .
-
-# Definindo o comando de entrada do contêiner
-CMD ["./myapp"]
+# roda o /.main no cmd
+CMD [ "./main" ]
