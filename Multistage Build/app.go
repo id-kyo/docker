@@ -6,12 +6,14 @@ import (
     "os"
 )
 
-func helloHandler(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, "Hello, World!")
+func Handler(w http.ResponseWriter, r *http.Request) {
+	var name, = os.Hostname()
+
+	fmt.Fprintf(w, "<h1>Hello! This request was processed by host: %s</h1>\n", name)
 }
 
 func main() {
-    http.HandleFunc("/", helloHandler)
+    http.HandleFunc("/", Handler)
 
     port := "8080"
     if envPort := os.Getenv("PORT"); envPort != "" {
