@@ -1,16 +1,23 @@
-# Etapa 1: Construção da aplicação
-FROM node:14 AS builder
-WORKDIR /app
-COPY package.json ./
-RUN npm install
-COPY . .
-RUN npm run build
+# Stage 1: Build
+FROM golang:1.16 AS builder
 
-# Etapa 2: Execução da aplicação
-FROM scratch:latest
+# Definindo o diretório de trabalho no contêiner
 WORKDIR /app
-#Chamando o primeiro "FROM" as Builder. Para formar as imagens em binário
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/package.json ./
-RUN npm install --only=production
-CMD ["node", "dist/index.js"]
+
+# Copiando os arquivos do projeto para o contêiner
+COPY . .
+
+# transformando o código em binário. parecido com um .exe
+RUN RUN go build -o app.go
+
+# Stage 2: Construção do Run
+FROM scratch:latest AS runner
+
+# Definindo o diretório de trabalho no contêiner
+WORKDIR /root/
+
+# copia o binário do builder para o runner
+COPY --from=builder . .
+
+# Definindo o comando de entrada do contêiner
+CMD ["./myapp"]
