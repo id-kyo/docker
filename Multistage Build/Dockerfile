@@ -8,7 +8,7 @@ EXPOSE 80
 WORKDIR /app
 
 # copia o app.go local para a imagem.
-COPY app.go .
+COPY /app.go .
 
 # roda o "go mod init [name]", necessário para fazer o go build.
 RUN go mod init main && go build 

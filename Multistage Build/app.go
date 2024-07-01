@@ -7,9 +7,13 @@ import (
 )
 
 func Handler(w http.ResponseWriter, r *http.Request) {
-	var name, = os.Hostname()
+    name, err := os.Hostname()
+    if err != nil {
+        http.Error(w, "Could not get hostname", http.StatusInternalServerError)
+        return
+    }
 
-	fmt.Fprintf(w, "<h1>Hello! This request was processed by host: %s</h1>\n", name)
+    fmt.Fprintf(w, "<h1>Hello! This request was processed by host: %s</h1>\n", name)
 }
 
 func main() {
