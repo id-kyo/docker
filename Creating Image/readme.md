@@ -9,7 +9,7 @@ Como começar a partir desse Dockerfile? Simples! Siga os passos abaixo:
     $ docker build -t aplicacao-teste .
 
 2. Em seguida, inicie sua aplicação usando:  
-    $ docker run --name aplicacao-teste -d -p 127.0.0.1:80:8080 aplicacao-teste
+    $ docker run --name aplicacao-teste -d -p 127.0.0.1:8080:80 aplicacao-teste
 
 3. Agora, vamos entrar no container:  
     $ docker container exec -it aplicacao-teste /bin/sh
@@ -18,5 +18,7 @@ Como começar a partir desse Dockerfile? Simples! Siga os passos abaixo:
 
 5. Teste a conectividade dentro do seu container usando curl:  
     $ curl 127.0.0.1
+
+6. Teste a conectividade fora do seu container usando http://127.0.0.1:8080/ no navegador local!
 
 Você deve receber o retorno do Nginx.
