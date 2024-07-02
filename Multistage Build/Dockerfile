@@ -18,7 +18,7 @@ FROM scratch AS stage
 # expõe a porta 80 do container
 EXPOSE 80
 
-# copia do golang a aplicação que foi criada pelo RUN.
+# copia do golang a aplicação que foi criada pelo RUN, em binários.
 COPY --from=builder /app/main /go/main
 
 # vai fazer a execução do main. dessa forma vai criar o webserver

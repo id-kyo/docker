@@ -1,6 +1,6 @@
 docker build -t multistage:golang .
 
-docker run -it multistage:golang sh 
+docker run -d -p 80:8080 multistage:golang
 
 docker run -v $'(pwd)':/app -w /app -it golang:1.18.0-bullseye sh
 
