@@ -1,13 +1,13 @@
-# VERSIONANDO
+## VERSIONANDO
 O versionamento, especialmente no contexto do Semantic Versioning (SemVer), serve para comunicar claramente as mudanças no software, ajudando desenvolvedores e usuários a entenderem a natureza das atualizações e a compatibilidade com versões anteriores.
 
 
-## No SemVer, a versão de um software é representada no formato MAJOR.MINOR.PATCH:
+### No SemVer, a versão de um software é representada no formato MAJOR.MINOR.PATCH:
 MAJOR: Incrementa quando há mudanças incompatíveis com versões anteriores.
 MINOR: Incrementa quando novas funcionalidades são adicionadas de forma compatível com versões anteriores.
 PATCH: Incrementa quando correções de bugs compatíveis com versões anteriores são feitas.
 
-## Em resumo:
+### Em resumo:
 1.0.0 → 1.0.1: Correções de bugs, sem mudanças de funcionalidades.
 1.0.0 → 1.1.0: Novas funcionalidades, compatível com versões anteriores.
 1.0.0 → 2.0.0: Mudanças significativas, potencialmente incompatível com versões anteriores.
