@@ -1,9 +1,9 @@
-# PASSOS PARA INICIAR ESSE DOCKERFILE
+## PASSOS PARA INICIAR ESSE DOCKERFILE
 1. docker build -t multistage:golang .
 2. docker run -d -p 8080:80 multistage:golang
 
 
-# PASSOS PARA TESTAR A IMAGEM CRIADA
+## PASSOS PARA TESTAR A IMAGEM CRIADA
 1. http://localhost:8080
 
 
