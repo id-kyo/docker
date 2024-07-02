@@ -19,7 +19,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 func main() {
     http.HandleFunc("/", Handler)
 
-    port := "8080"
+    port := "80"
     if envPort := os.Getenv("PORT"); envPort != "" {
         port = envPort
     }
