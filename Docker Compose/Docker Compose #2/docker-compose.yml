@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  nodeapp:
+    build: 
+      context: . # especifica diretório
+      dockerfile: Dockerfile # especifica o dockerfile
+      args:
+        - VERSION=v1.2.0
+    container_name: node-js-compose
+    environment:
+      - PORT=5000
+    ports:
+      - "5055:5000"
