@@ -1,8 +1,0 @@
-version: '3.8'
-
-services:
-  frontend: #nome do service
-    container_name: frontend
-    image: nginx
-    ports:
-      - "3000:30" #host:container
