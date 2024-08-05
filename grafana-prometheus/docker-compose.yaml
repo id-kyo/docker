@@ -1,0 +1,38 @@
+services:
+  web:
+    image: kubedevio/rotten-potatoes:v1
+    ports:
+      - 8080:5000
+    networks:
+      - prometheus
+    depends_on:
+      - mongodb
+    environment:
+      MONGODB: "admin"
+      MONGODB_HOST: "mongodb"
+      MONGO_PORT: "27017"
+      MONGO_USERNAME: "mongouser"
+      MONGO_PASSWORD: "mongopwd"
+  
+  mongodb:
+    image: mongo:7.0
+    volumes:
+      - db_mongo:\\wsl.localhost\Ubuntu\app\db
+    networks:
+      - prometheus
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongouser
+      MONGO_INITDB_ROOT_PASSWORD: mongopwd
+    
+  prometheus:
+    image: prom/prometheus:v2.47.2
+    ports:
+      - 9090:9090
+    networks:
+      - prometheus
+
+volumes:
+  db_mongo:
+networks:
+  prometheus:
+    driver: bridge
