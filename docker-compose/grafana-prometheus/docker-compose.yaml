@@ -34,9 +34,9 @@ services:
       - ./prometheus.yaml:\\wsl.localhost\Ubuntu\home\caio\app\prometheus.yml
     
   grafana:
-    image: grafana/grafana
+    image: grafana/grafana:10.2.2
     ports:
-      - 7000:7000
+      - 3000:3000
     networks:
       - prometheus
 
