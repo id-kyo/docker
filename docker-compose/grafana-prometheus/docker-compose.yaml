@@ -17,7 +17,7 @@ services:
   mongodb:
     image: mongo:7.0
     volumes:
-      - db_mongo:\\wsl.localhost\Ubuntu\app\db
+      - db_mongo:/wsl.localhost/Ubuntu/app/db
     networks:
       - prometheus
     environment:
@@ -31,12 +31,12 @@ services:
     networks:
       - prometheus
     volumes:
-      - ./prometheus.yaml:\\wsl.localhost\Ubuntu\home\caio\app\prometheus.yml
+      - ./prometheus.yaml:/wsl.localhost/Ubuntu/home/caio/app/prometheus.yml
     
   grafana:
     image: grafana/grafana:10.2.2
     ports:
-      - 3000:3000
+      - 2500:3000
     networks:
       - prometheus
 
