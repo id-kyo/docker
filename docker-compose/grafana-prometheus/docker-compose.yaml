@@ -30,6 +30,15 @@ services:
       - 9090:9090
     networks:
       - prometheus
+    volumes:
+      - ./prometheus.yaml:\\wsl.localhost\Ubuntu\home\caio\app\prometheus.yml
+    
+  grafana:
+    image: grafana/grafana
+    ports:
+      - 7000:7000
+    networks:
+      - prometheus
 
 volumes:
   db_mongo:
