@@ -31,7 +31,7 @@ services:
     networks:
       - prometheus
     volumes:
-      - ./prometheus.yaml:/wsl.localhost/Ubuntu/home/caio/app/prometheus.yml
+      - ./prometheus.yaml:/home/app/prometheus.yaml
     
   grafana:
     image: grafana/grafana:10.2.2
