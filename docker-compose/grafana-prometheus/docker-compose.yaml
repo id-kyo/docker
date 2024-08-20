@@ -4,7 +4,7 @@ services:
     ports:
       - 8080:5000
     networks:
-      - prometheus
+      - context-prometheus
     depends_on:
       - mongodb
     environment:
@@ -17,9 +17,9 @@ services:
   mongodb:
     image: mongo:7.0
     volumes:
-      - db_mongo:/wsl.localhost/Ubuntu/app/db
+      - db_mongo:/home/app/db
     networks:
-      - prometheus
+      - context-prometheus
     environment:
       MONGO_INITDB_ROOT_USERNAME: mongouser
       MONGO_INITDB_ROOT_PASSWORD: mongopwd
@@ -29,19 +29,20 @@ services:
     ports:
       - 9090:9090
     networks:
-      - prometheus
+      - context-prometheus
     volumes:
-      - ./prometheus.yaml:/home/app/prometheus.yaml
+      - ./prometheus.yaml:/etc/prometheus/prometheus.yml
+
     
   grafana:
     image: grafana/grafana:10.2.2
     ports:
       - 2500:3000
     networks:
-      - prometheus
+      - context-prometheus
 
 volumes:
   db_mongo:
 networks:
-  prometheus:
+  context-prometheus:
     driver: bridge
